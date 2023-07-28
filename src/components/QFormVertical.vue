@@ -5,10 +5,7 @@
     <a-form-model 
       ref="rform"
       v-bind="$attrs" v-on="$listeners"
-      :label-col="labelcol" 
-      :wrapper-col="wrappercol"
-      :labelAlign="labelAlign"
-      :layout="layout"
+      layout="vertical"
       :rules="rules"
         >
         <slot></slot>
@@ -17,7 +14,7 @@
 </template>
 <script>
 export default{
-    name: "q-form",
+    name: "q-form-vertical",
     props: {
       formStyle: {
          type: Object,
@@ -29,7 +26,6 @@ export default{
            }
       }
     },
-    
     size: {
       type: String,
       default: 'medium',
@@ -70,7 +66,6 @@ export default{
       this.$refs['rform'].resetFields()
     },
   }
-
 }
 </script>
 <style scoped>

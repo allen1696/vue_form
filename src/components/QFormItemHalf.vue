@@ -1,15 +1,19 @@
 <template>
   <div>
-    
-    <a-form-model-item v-bind="$attrs" v-on="$listeners" >
+    <a-col :span="11">
+    <a-form-model-item 
+    v-bind="$attrs"
+    v-on="$listeners"
+    :prop="prop">
         <slot></slot>
     </a-form-model-item>
-    
+  </a-col>
+  <a-col span="1"></a-col>
   </div>
 </template>
 <script>
 export default{
-    name: "QFormItem",
+    name: "q-form-item-half",
     props: {
     span: {
       type: String,
@@ -19,6 +23,11 @@ export default{
         return ['whole', 'half'].indexOf(value) !== -1
       },
     },
+    pop:{
+      type: String,
+      default: '',
+    },
+    
   },
   computed: {
     colSpan() {
@@ -28,16 +37,16 @@ export default{
         case 'half':
           return 11;
         default:
-          return {};
+          return 23;
       }
     },
+    prop(){
+      return this.pop
+    }
     },
 }
 
 </script>
 <style scoped>
-.a-col-item{
-  color: red;
-  width: 90%;
-}
+
 </style>
